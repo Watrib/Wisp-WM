@@ -65,7 +65,7 @@ max_fps = 60 # match a 60 Hz host; 144 caused nested present stalls in launcher 
 width = 1280
 height = 800
 # Optional direct-mode connector mode. Omit for the driver's preferred mode.
-# direct_mode = "1366x768@60" # WIDTHxHEIGHT or WIDTHxHEIGHT@HZ; restart Wisp to apply
+# direct_mode = "1920x1080@60" # WIDTHxHEIGHT or WIDTHxHEIGHT@HZ; restart Wisp to apply
 
 # Add or override shortcuts while keeping the built-in bindings:
 # [extra_bindings]

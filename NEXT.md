@@ -146,13 +146,12 @@
   sending them to an unfocused client. Shortcut releases remain intercepted.
 - Added regression covering Alt+2 then Alt+Return without releasing Alt, plus
   release of Alt during a slide. Fmt, warning-free clippy, **90 tests**, release
-  build and nested smoke passed (`validation-alt-chords.log`). The updated
+  build and nested smoke passed. The updated
   release binary is ready for user-led direct VT retest, not hardware-tested
   automatically.
-- `/home/watrib/log.txt` contains a glmark2 validation run on Intel HD 3000
-  with listed successes/Unknown entries; user provided matching output from
-  niri. Neither report contains Wayland dmabuf protocol tracing, so actual
-  Wisp dmabuf imports and performance remain unverified.
+- Local glmark2 and niri comparison reports were inspected for reference;
+  neither contains Wayland dmabuf protocol tracing, so actual Wisp dmabuf
+  imports and performance remain unverified.
 
 ## Daily-use batch — software validation passed; hardware/visual still pending
 
@@ -164,7 +163,7 @@
   animates tile rearrangements when windows move or open. Hidden scratchpad
   commits no longer trigger redraw; outgoing slide windows do trigger redraw.
   Fmt, clippy, 89 tests, release build and nested smoke passed. Limited nested
-  samples are in `validation-daily-use-nested.json`; no GPU timings.
+  samples are in the local validation records; no GPU timings.
 
 - Opt-in workspace slide (`[layout] workspace_slide`, default false, 80–500 ms):
   temporarily keeps outgoing windows mapped, transforms both workspaces in
@@ -202,8 +201,8 @@
   advertise dmabuf at all; no pointer to its winit renderer was introduced.
 - Focused protocol test covers v4/v3 advertisement, feedback delivery, rejected
   import, and shm fallback. `cargo check --all-targets`, the focused test, fmt,
-  fmt check, clippy, **81 tests**, release build and nested smoke all passed
-  (`validation-direct-dmabuf.log`). The new release binary includes this path.
+  fmt check, clippy, **81 tests**, release build and nested smoke all passed.
+  The new release binary includes this path.
   **Real GPU-buffer creation/rendering has not been hardware-verified**.
 - Hardware test requires the user to choose and approve a free VT, and to run
   a genuinely accelerated Wayland client. Do not switch VTs automatically or
@@ -248,8 +247,8 @@
 
 The user subsequently authorized fmt, clippy, tests and release build. All passed
 with one Cargo job; tests used `CARGO_PROFILE_TEST_DEBUG=0`. The full test suite
-has **80 passing tests**. Release compilation took 274 seconds. Results are in
-`validation-navigation-batch.log`. The first test run exposed a synthetic-client
+has **80 passing tests**. Release compilation took 274 seconds. A first test
+run exposed a synthetic-client
 ordering issue: queued configure acknowledgements were sent after toplevel
 destruction. Draining those events before destroying the role fixed the test;
 the targeted regression and subsequent full suite passed.

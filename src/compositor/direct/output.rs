@@ -272,18 +272,18 @@ mod tests {
 
     #[test]
     fn explicit_connector_selection_is_case_insensitive() {
-        let list = choices(&[("LVDS-1", true, true), ("HDMI-A-1", false, false)]);
-        assert_eq!(choose_choice(&list, Some("lvds-1")).unwrap(), 0);
+        let list = choices(&[("PANEL-0", true, true), ("HDMI-A-1", false, false)]);
+        assert_eq!(choose_choice(&list, Some("panel-0")).unwrap(), 0);
     }
 
     #[test]
     fn disconnected_or_unknown_explicit_connector_is_rejected() {
-        let list = choices(&[("LVDS-1", false, true), ("HDMI-A-1", true, false)]);
-        assert!(choose_choice(&list, Some("LVDS-1")).is_err());
+        let list = choices(&[("PANEL-0", false, true), ("HDMI-A-1", true, false)]);
+        assert!(choose_choice(&list, Some("PANEL-0")).is_err());
         assert!(choose_choice(&list, Some("HDMI-A-1")).is_err());
         let error = choose_choice(&list, Some("DP-9")).unwrap_err().to_string();
         assert!(error.contains("not found"));
-        assert!(error.contains("LVDS-1"));
+        assert!(error.contains("PANEL-0"));
     }
 
     #[test]
@@ -291,7 +291,7 @@ mod tests {
         let list = choices(&[
             ("DP-1", false, true),
             ("HDMI-A-1", true, false),
-            ("LVDS-1", true, true),
+            ("PANEL-0", true, true),
         ]);
         assert_eq!(choose_choice(&list, None).unwrap(), 2);
         assert!(choose_choice(&list[..2], None).is_err());

@@ -618,7 +618,7 @@ mod tests {
     #[test]
     fn direct_mode_accepts_explicit_resolution_and_optional_refresh() {
         assert_eq!(
-            DirectMode::parse("1366x768@60").unwrap().refresh_hz,
+            DirectMode::parse("1920x1080@60").unwrap().refresh_hz,
             Some(60)
         );
         assert_eq!(DirectMode::parse("1920x1080").unwrap().refresh_hz, None);

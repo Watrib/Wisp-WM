@@ -2,3 +2,5 @@
 /.cache/
 /.tools/
 __pycache__/
+*.log
+validation-*.json

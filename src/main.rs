@@ -19,7 +19,7 @@ struct Args {
     /// DRM card to use with --backend direct, e.g. /dev/dri/card1
     #[arg(long)]
     drm_device: Option<PathBuf>,
-    /// Output connector for direct mode, e.g. LVDS-1 (default: first connected)
+    /// Output connector for direct mode, e.g. HDMI-A-1 (default: first connected)
     #[arg(long)]
     connector: Option<String>,
     /// Expected libseat seat name; libseat itself chooses the seat

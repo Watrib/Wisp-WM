@@ -1,6 +1,0 @@
-[2m2026-10-26T20:53:52.054666Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp compositor ready [3mbackend[0m[2m=[0m"nested-winit-gles" [3mseat[0m[2m=[0mwisp-nested [3mwayland[0m[2m=[0m"wayland-2" [3mipc[0m[2m=[0m/run/user/1000/wisp-wayland-2.sock [3mconfig[0m[2m=[0mconfig/wisp.toml
-[2m2026-10-26T20:53:52.054734Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Alt+Return: terminal; Alt+j/k: focus; Alt+Space: float; Alt+left/right drag: move/resize; Alt+Shift+Escape: quit
-[2m2026-10-26T20:53:56.320339Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp shutting down [3mreason[0m[2m=[0m"IPC quit requested" [3mwindows[0m[2m=[0m2 [3mclients[0m[2m=[0m2 [3mtimeout_ms[0m[2m=[0m2000
-warn: terminal.c:2034: slave exited with signal 1 (Hangup)
-warn: terminal.c:2034: slave exited with signal 1 (Hangup)
-[2m2026-10-26T20:53:56.345578Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp stopped [3mreason[0m[2m=[0m"IPC quit requested" [3mremaining_clients[0m[2m=[0m0 [3mremaining_children[0m[2m=[0m0

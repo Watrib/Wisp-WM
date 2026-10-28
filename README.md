@@ -10,7 +10,9 @@ latency, frame-time, power, and memory measurements on the same hardware.
 **Current batch passed fmt, clippy, all 80 tests, and release build:** config
 overlays, navigation and effect actions, overview keyboard controls, and startup
 commands are included in the new release binary. Release smoke also passed;
-live visual checks remain pending. See [`NEXT.md`](NEXT.md) for the remaining checklist.
+live visual checks remain pending. See [`NEXT.md`](NEXT.md) for the remaining
+checklist. Detailed validation records and benchmark samples are kept as
+local files and are intentionally not tracked in this repository.
 
 ## Run inside your desktop
 
@@ -44,7 +46,7 @@ mode (or its first mode). It requires an active local seat through libseat's
 logind or seatd backend. Width/height in the TOML file apply only to nested mode;
 both backends currently use output scale 1.
 To request a specific supported direct-connector mode, set
-`[render] direct_mode = "1366x768@60"` (or `"1366x768"` to choose the
+`[render] direct_mode = "1920x1080@60"` (or `"1920x1080"` to choose the
 preferred refresh at that resolution) and restart Wisp. An unavailable mode
 fails rather than silently switching to another one. This selects a mode on
 the **one** configured connector; it does not add multi-monitor support,
@@ -55,8 +57,8 @@ Inspect available connectors from your existing desktop first:
 
 ```sh
 ./target/release/wisp --probe-direct
-# Explicit device and connector, using this laptop's detected names:
-./target/release/wisp --probe-direct --drm-device /dev/dri/card1 --connector LVDS-1
+# Explicit device and connector, using the names reported by --probe-direct:
+./target/release/wisp --probe-direct --drm-device /dev/dri/<card> --connector <connector>
 ```
 
 The probe reads cached DRM state through a read-only file, without requesting
@@ -67,9 +69,9 @@ For the manual hardware test, switch to an unused VT (for example
 **Ctrl+Alt+F3**), log in as your normal user, and run:
 
 ```sh
-cd ~/Projects/wisp
+cd ~/Projects/wisp  # any checkout location works
 ./target/release/wisp --backend direct \
-  --config config/wisp.toml --drm-device /dev/dri/card1 --connector LVDS-1 \
+  --config config/wisp.toml --drm-device /dev/dri/<card> --connector <connector> \
   --command foot
 ```
 
@@ -83,14 +85,14 @@ Check the following during that VT session:
 
 1. A terminal, borders, and cursor appear at the monitor's native mode. Type,
    scroll, drag/resize, and switch workspaces using the normal Wisp controls.
-2. Run `~/Projects/wisp/target/release/wispctl status` inside the terminal. It
+2. Run `./target/release/wispctl status` inside the terminal. It
    should show `direct-drm-gles`, the selected connector/mode, and an active seat.
 3. Use **Ctrl+Alt+F1…F12** to switch away and return to Wisp's VT. Input and
    rendering should resume with a full repaint and no stuck modifiers.
 4. On a removable display, check unplug/reconnect. The output global should be
    withdrawn and recreated; other connectors can be chosen when none was pinned.
-5. Quit with **Alt+Shift+Escape** or `wispctl quit`, then return to your desktop's
-   VT (tty1 on this laptop).
+5. Quit with **Alt+Shift+Escape** or `wispctl quit`, then return to your
+   desktop's VT.
 
 The direct backend now advertises **linux-dmabuf-v4** when GLES reports
 importable texture formats. Its default/surface feedback uses the GPU render
@@ -102,19 +104,19 @@ The global is intentionally absent in nested mode, which continues to accept
 user-approved real-hardware test; the existing keyboard/terminal hardware test
 does **not** verify dmabuf import or a performance gain.
 Fmt, clippy, 81 tests (including v4/v3 feedback and import rejection), release
-build and nested smoke passed for this batch (`validation-direct-dmabuf.log`).
+build and nested smoke passed for this batch; the validation record stays
+local.
 
 Direct scanout of client buffers and multi-monitor are not implemented.
 Display hotplug and explicit mode selection still need manual hardware
 validation; input, VT pause/resume, and composed scanout were tested below.
 ### Manual hardware validation
-Direct mode was tested manually on this machine from a free VT (tty4) on the
-real GPU: `./target/release/wisp --backend direct --drm-device /dev/dri/card1
---connector LVDS-1 --command foot` (test log was in `/tmp/opencode` before a
-machine restart; it is no longer present).
-The session drove the Intel i915 device as `direct-drm-gles` at LVDS-1's
-preferred 1366×768@59.998 mode; the user verified output, borders, software
-cursor, typing, workspaces, and `wispctl status`. Switching VTs showed
+Direct mode was tested manually from a free VT on the real GPU
+(`--backend direct --drm-device /dev/dri/<card> --connector <output> --command
+foot`); the local test log was not preserved and is not tracked. The session
+drove the real GPU's device as `direct-drm-gles` at the connector's preferred
+native mode; the user verified output, borders, software cursor, typing,
+workspaces, and `wispctl status`. Switching VTs showed
 `direct session paused; display and input released` and the return resumed
 cleanly; quitting left zero remaining clients and stopped cleanly. Three
 non-fatal log lines are understood and handled: the unprivileged startup
@@ -285,9 +287,8 @@ on entry (~20 ms cumulative render-side wall time, 17 ms composition) and 24
 on exit (~25 ms render-side, 19.5 ms composition); no render-side frame took
 over 8 ms, and the post-exit idle interval rendered zero frames. Seven enter
 calls exceeded 16 ms end-to-end due to nested host presentation waiting, not
-slow CPU-side rendering. This is a single directional sample
-(`validation-overview-zoom-check.log`), **not** proof of visual smoothness or
-direct-mode timing.
+slow CPU-side rendering. This is a single directional sample, **not** proof of
+visual smoothness or direct-mode timing.
 Client keyboard/pointer input is suspended while overview is open. It renders
 only on changes, not continuously, and does not show windows hidden by a
 fullscreen window or on other workspaces. Experimental four-finger pinch entry
@@ -682,7 +683,8 @@ performance claims.
 On the current default build (2026-10-26), another 20-second-settled,
 10-second Noctalia-only idle run again counted **9 rendered frames / 9 commits**,
 **0 no-damage redraws**, **0.01 process CPU-seconds**, and **159,044 KiB RSS**
-(`validation-idle-current.json`). Different sessions and allocator state make
+**0.01 process CPU-seconds**, and **159,044 KiB RSS**. Different sessions and
+allocator state make
 small RSS differences meaningless; the important observation is no idle
 render loop or additional default-on effect work.
 
@@ -730,7 +732,7 @@ removes two temporary vector allocations per decorated window per rendered
 frame when uniforms are stable; the measured CPU/scene change is directional,
 not a statistically established speedup. Host-present wall also varied (56
 vs 43 ms), but the uniform change is not credited for that difference.
-Raw samples: `validation-perf-before.json` and `validation-perf-after.json`.
+Raw samples: local validation records, not tracked in this repository.
 
 Blur usually belongs in **GPU textures**, with bounded cache memory and
 invalidation when the background, geometry, scale, or blur parameters change.
@@ -794,8 +796,8 @@ additional frames in the following idle interval. Five-second single-run
 nested samples with an animated foot client recorded 150 frames and 0.44 CPU
 seconds with defaults versus 150 frames and 0.43 CPU seconds with animation
 settings enabled; the steady-state sample **does not exercise transitions**,
-so it cannot establish animation cost or smoothness. Raw data is in
-`validation-daily-use-nested.json`.
+so it cannot establish animation cost or smoothness. Raw data stays in local
+validation records.
 
 A single-window scratchpad can be controlled by `wispctl send-to-scratchpad`
 and `wispctl toggle-scratchpad`, or via `[extra_bindings]` actions of the same
