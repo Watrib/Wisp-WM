@@ -1,0 +1,3 @@
+[build]
+# Uses sccache when installed; otherwise transparently runs rustc directly.
+rustc-wrapper = "scripts/sccache.sh"

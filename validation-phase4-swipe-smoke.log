@@ -1,0 +1,3 @@
+PASS: native clients without missing-protocol warnings, background bell urgency without focus stealing, layouts, floating/fullscreen, workspaces, window rules, reload/error handling, idle rendering, close, clean shutdown
+PASS: empty-session quit acknowledgement, bounded shutdown with a connected windowless client
+smoke exit=0

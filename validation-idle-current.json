@@ -1,0 +1,28 @@
+{
+  "pid": 33196,
+  "backend": "nested-winit-gles",
+  "viewport": {
+    "height": 768,
+    "width": 1280,
+    "x": 0,
+    "y": 0
+  },
+  "clients": 1,
+  "layers": 2,
+  "workload": "existing clients",
+  "seconds": 10.005,
+  "cpu_seconds": 0.01,
+  "rss_kib": 159044,
+  "rendered": 9,
+  "no_damage": 0,
+  "client_commits": 9,
+  "skipped_invisible_commits": 0,
+  "host_redraws": 0,
+  "last_cpu_render_us": 1046,
+  "phase_wall_us": {
+    "scene_wall_us": 3181,
+    "bind_wall_us": 282,
+    "compose_wall_us": 4558,
+    "present_wall_us": 636
+  }
+}

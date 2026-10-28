@@ -1,0 +1,28 @@
+Experimental session lock (off by default)
+
+cargo fmt --all: PASS
+cargo clippy --all-targets --jobs 1 -- -D warnings: PASS
+cargo test --all-targets --jobs 1: PASS, 95 library tests, 0 failures
+Focused real-client protocol tests for lock creation, owner-bound unlock,
+lock-surface configure/commit and dead-locker fail-closed behavior passed.
+At the time of the automated batch, no real locker or direct-VT test had run.
+After the follow-up focus/activation audit fixes: fmt check PASS;
+clippy --all-targets -D warnings PASS; release build PASS;
+nested smoke (`python3 scripts/smoke.py --release`) PASS.
+Final-source test rerun: PASS, 95 library tests, 0 failures (plus main and
+wispctl targets with 0 tests). Intentional invalid-protocol tests log errors.
+
+Smithay 0.7 calls SessionLockHandler::unlock after invalid_unlock from an
+unconfirmed lock. Wisp intercepts these requests by resource identity and
+confirmation state before forwarding to Smithay; the global is off by default.
+XWayland not integrated.
+
+User-reported manual validation (later): swaylock locked and unlocked in a
+nested Wisp window; swaylock and Noctalia lock both worked on a real VT.
+The user additionally reported no desktop flash during the real-VT lock:
+the desktop disappeared, the correct password was entered, and unlock
+restored the desktop. The user also tried wrong passwords twice: swaylock
+reported `pam_authenticate failed: invalid credentials`, and the lock stayed
+in place until the correct password. VT-away/return, hotplug and
+locker-disconnect recovery were not separately reported. This
+supports locker compatibility, not a complete security-boundary claim.

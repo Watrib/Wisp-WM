@@ -1,0 +1,3 @@
+# Keep builds local; do not inherit a global remote-cache configuration.
+[cache.disk]
+size = 1073741824

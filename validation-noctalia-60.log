@@ -1,0 +1,94 @@
+[2m2026-10-26T17:16:28.230025Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp compositor ready [3mbackend[0m[2m=[0m"nested-winit-gles" [3mseat[0m[2m=[0mwisp-nested [3mwayland[0m[2m=[0m"wayland-2" [3mipc[0m[2m=[0m/run/user/1000/wisp-wayland-2.sock [3mconfig[0m[2m=[0m/tmp/opencode/wisp-fps-60.toml
+[2m2026-10-26T17:16:28.230084Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Alt+Return: terminal; Alt+j/k: focus; Alt+Space: float; Alt+left/right drag: move/resize; Alt+Shift+Escape: quit
+17:16:28.317 [[32mINF[0m] [[34mfdlimit[0m] RLIMIT_NOFILE already at hard limit (524288)
+17:16:28.317 [[32mINF[0m] [[34mconfig[0m] loading /home/watrib/.local/state/noctalia/settings.toml
+17:16:28.318 [[32mINF[0m] [[34mstate[0m] loading /home/watrib/.local/state/noctalia/state.toml
+17:16:28.319 [[32mINF[0m] [[34mplugins[0m] loaded plugin 'noctalia/bongocat' (1 entries) from /home/watrib/.local/state/noctalia/plugins/materialized/official/bongocat
+17:16:28.319 [[32mINF[0m] [[34mplugins[0m] loaded plugin 'aabidk20/yt-music' (4 entries) from /home/watrib/.local/state/noctalia/plugins/materialized/community/yt-music
+17:16:28.321 [[32mINF[0m] [[34mconfig[0m] 1 bar(s) defined
+17:16:28.321 [[32mINF[0m] [[34mconfig[0m] bar order: default
+17:16:28.321 [[32mINF[0m] [[34mconfig[0m] idle behaviors=3
+17:16:28.321 [[32mINF[0m] [[34mconfig[0m] hooks kinds with commands=0
+17:16:28.325 [[32mINF[0m] [[34mthumbnail[0m] spawned 2 decode worker(s)
+17:16:28.936 [[32mINF[0m] [[34mapp[0m] noctalia v5.3.0 (5.3.0-1-dirty)
+17:16:28.936 [[32mINF[0m] [[34mapp[0m] connected to session bus
+17:16:29.004 [[32mINF[0m] [[34mi18n[0m] language: en (from en-US)
+17:16:29.118 [[32mINF[0m] [[34mseat[0m] keyboard: bound
+17:16:29.118 [[32mINF[0m] [[34mseat[0m] pointer: bound
+17:16:29.118 [[32mINF[0m] [[34mseat[0m] pointer: cursor-shape-v1 available
+17:16:29.119 [[32mINF[0m] [[34mwayland[0m] connected compositor=yes shm=yes layer-shell=yes xdg-shell=yes xdg-output=yes ext-workspace=yes kde-vd=no dwl-ipc=no session-lock=no fractional-scale=yes gamma-control=no output-management=no outputs=1
+17:16:29.119 [[32mINF[0m] [[34mwayland[0m] output WISP-1 global=19 wl_scale=1 detected_fractional_scale=1.000 logical=1280x768 mode=1280x768 orientation=normal desc="Wisp - Nested - WISP-1"
+17:16:29.119 [[32mINF[0m] [[34mworkspace[0m] workspace backend=ext-workspace
+MESA-EGL: warning: failed to get driver name for fd -1
+MESA-EGL: warning: MESA-LOADER: failed to retrieve device information
+MESA-EGL: warning: failed to get driver name for fd -1
+MESA: error: ZINK: vkEnumeratePhysicalDevices failed (VK_ERROR_INITIALIZATION_FAILED)
+MESA: error: ZINK: failed to choose pdev
+MESA-EGL: warning: egl: failed to create dri2 screen
+17:16:29.238 [[32mINF[0m] [[34mgl[0m] requesting robust EGL contexts with graphics reset notification
+17:16:29.289 [[32mINF[0m] [[34mgl[0m] initialized EGL 1.5 with shared root context
+17:16:29.289 [[32mINF[0m] [[34mtext-input[0m] text-input-v3 bound
+17:16:29.289 [[32mINF[0m] [[34midle[0m] idle inhibit protocol unavailable
+17:16:29.289 [[33mWRN[0m] [[34mgamma[0m] compositor does not support gamma control
+17:16:29.289 [[32mINF[0m] [[34mapp[0m] distro: Arch Linux
+17:16:29.289 [[32mINF[0m] [[34mapp[0m] system monitor service disabled by config
+17:16:29.290 [[32mINF[0m] [[34mapp[0m] connected to system bus
+17:16:29.291 [[32mINF[0m] [[34mapp[0m] logind sleep monitor active
+17:16:29.304 [[32mINF[0m] [[34maccounts[0m] session user avatar path: /home/watrib/.face
+17:16:29.305 [[32mINF[0m] [[34mapp[0m] accounts service active for uid 1000
+17:16:29.305 [[32mINF[0m] [[34mapp[0m] power profiles service active (state loading asynchronously)
+17:16:29.314 [[32mINF[0m] [[34mupower[0m] connected (no system battery present)
+17:16:29.315 [[32mINF[0m] [[34mkeyboard-backlight[0m] no keyboard backlights available
+17:16:29.315 [[32mINF[0m] [[34mapp[0m] network service active
+17:16:29.316 [[33mWRN[0m] [[34mnetwork[0m] secret agent registration failed: [org.freedesktop.NetworkManager.AgentManager.PermissionDenied] An agent with this ID is already registered for this user.
+17:16:29.316 [[32mINF[0m] [[34mapp[0m] bluetooth service active
+17:16:29.317 [[33mWRN[0m] [[34mbluetooth[0m] BlueZ agent registration failed: [org.freedesktop.DBus.Error.ServiceUnknown] The name is not activatable
+17:16:29.317 [[32mINF[0m] [[34mmodem[0m] modem manager not on the bus; waiting for it to appear
+17:16:29.317 [[32mINF[0m] [[34mapp[0m] modem manager service active
+17:16:29.326 [[32mINF[0m] [[34mpipewire[0m] connected to daemon 1.6.10 (client library 1.6.10)
+17:16:29.333 [[32mINF[0m] [[34mwireplumber[0m] connected; loading mixer-api / default-nodes-api modules
+17:16:29.334 [[31mERR[0m] [[34msound[0m] sound theme 'freedesktop' is missing sound 'message-new-instant'
+17:16:29.334 [[31mERR[0m] [[34msound[0m] sound theme 'freedesktop' is missing sound 'audio-volume-change'
+17:16:29.334 [[31mERR[0m] [[34msound[0m] sound theme 'freedesktop' is missing sound 'power-plug'
+17:16:29.334 [[31mERR[0m] [[34msound[0m] sound theme 'freedesktop' is missing sound 'power-unplug'
+17:16:29.334 [[31mERR[0m] [[34msound[0m] sound theme 'freedesktop' is missing sound 'screen-capture'
+17:16:29.334 [[33mWRN[0m] [[34mapp[0m] debug service disabled: [org.freedesktop.DBus.Error.FileExists] Failed to request bus name (File exists)
+17:16:29.334 [[33mWRN[0m] [[34mapp[0m] mpris disabled: [org.freedesktop.DBus.Error.FileExists] Failed to request bus name (File exists)
+17:16:29.334 [[33mWRN[0m] [[34mapp[0m] notifications disabled: [org.freedesktop.DBus.Error.AccessDenied] org.freedesktop.Notifications is owned by another service
+17:16:29.335 [[32mINF[0m] [[34mlocation[0m] loaded cached location
+17:16:29.396 [[32mINF[0m] [[34mweather[0m] loaded cached weather data
+17:16:29.403 [[32mINF[0m] [[34mplugins[0m] loaded plugin 'noctalia/bongocat' (1 entries) from /home/watrib/.local/state/noctalia/plugins/materialized/official/bongocat
+17:16:29.404 [[32mINF[0m] [[34mplugins[0m] loaded plugin 'aabidk20/yt-music' (4 entries) from /home/watrib/.local/state/noctalia/plugins/materialized/community/yt-music
+17:16:29.462 [[32mINF[0m] [[34mrender[0m] EGL vendor="Mesa Project" version="1.5" APIs="OpenGL OpenGL_ES "
+17:16:29.462 [[32mINF[0m] [[34mrender[0m] OpenGL ES vendor="Mesa" renderer="llvmpipe (LLVM 23.1.3, 256 bits)" version="OpenGL ES 3.2 Mesa 26.2.5-arch1.1.1"
+17:16:29.521 [[32mINF[0m] [[34mbackdrop[0m] disabled in config
+17:16:29.521 [[32mINF[0m] [[34mlogind[0m] logind session lock monitor active (/org/freedesktop/login1/session/_33)
+17:16:29.536 [[32mINF[0m] [[34mlogind[0m] logind sleep delay inhibit acquired
+17:16:29.782 [[32mINF[0m] [[34midle[0m] idle notify protocol unavailable
+17:16:29.782 [[32mINF[0m] [[34midle[0m] idle notify protocol unavailable; idle behaviors not registered
+17:16:29.784 [[32mINF[0m] [[34mscreensaver[0m] logind idle inhibit monitor active
+17:16:29.784 [[32mINF[0m] [[34mdock[0m] dock disabled in config
+17:16:29.784 [[32mINF[0m] [[34mwallpaper[0m] creating on WISP-1 (Wisp - Nested - WISP-1), path=/home/watrib/Pictures/1004017-colorized.png
+17:16:29.784 [[32mINF[0m] [[34mbar[0m] creating #0 "default" on WISP-1 (Wisp - Nested - WISP-1), thickness=40 position=right reserve_space=false exclusive_zone=0
+17:16:29.785 [[32mINF[0m] [[34mplugin-service[0m] started service 'aabidk20/yt-music:service'
+17:16:29.785 [[32mINF[0m] [[34mapp[0m] IPC socket at /run/user/1000/noctalia-wayland-2.sock
+17:16:29.786 [[32mINF[0m] [[34mdmenu[0m] listening on /run/user/1000/noctalia-dmenu-wayland-2.sock
+17:16:29.786 [[32mINF[0m] [[34mtelemetry[0m] telemetry disabled
+17:16:29.809 [[32mINF[0m] [[34mclipboard[0m] loaded encrypted clipboard history
+17:16:29.961 [[32mINF[0m] [[34mapp[0m] secret service default collection unlocked; reopening consumers
+17:16:30.512 [[32mINF[0m] [[34mtexcache[0m] uploaded /home/watrib/Pictures/1004017-colorized.png (1920x1097 from 1920x1097)
+17:16:30.763 [[32mINF[0m] [[34mwireplumber[0m] mixer-api ready
+17:16:30.763 [[32mINF[0m] [[34mwireplumber[0m] default-nodes-api ready
+17:16:30.812 [[33mWRN[0m] [[34mapp[0m] polkit agent disabled: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: An authentication agent already exists for the given subject
+17:16:30.870 [[32mINF[0m] [[34mplugins.git[0m] git -C /home/watrib/.local/state/noctalia/plugins/sources/community/repo fetch origin took 1362ms (exit 0)
+17:16:31.075 [[32mINF[0m] [[34mplugins[0m] source 'community' already up to date
+17:16:31.304 [[32mINF[0m] [[34mplugins.git[0m] git -C /home/watrib/.local/state/noctalia/plugins/sources/official/repo fetch origin took 1814ms (exit 0)
+17:16:32.711 [[33mWRN[0m] [[34mmain[0m] poll source 20HttpClientPollSource dispatch took 1363.5ms
+17:16:32.711 [[32mINF[0m] [[34mplugins[0m] source 'official' already up to date
+[2m2026-10-26T17:16:42.726730Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp shutting down [3mreason[0m[2m=[0m"IPC quit requested" [3mwindows[0m[2m=[0m0 [3mclients[0m[2m=[0m1 [3mtimeout_ms[0m[2m=[0m2000
+[2m2026-10-26T17:16:44.736682Z[0m [33m WARN[0m [2mwisp::compositor[0m[2m:[0m shutdown grace period expired; disconnecting remaining clients [3mremaining_clients[0m[2m=[0m1 [3mremaining_children[0m[2m=[0m1
+[2m2026-10-26T17:16:44.736812Z[0m [32m INFO[0m [2mwisp::compositor[0m[2m:[0m Wisp stopped [3mreason[0m[2m=[0m"IPC quit requested" [3mremaining_clients[0m[2m=[0m1 [3mremaining_children[0m[2m=[0m1
+17:16:44.747 [[32mINF[0m] [[34mmain[0m] Wayland display closed during failed to read Wayland events; shutting down (display_error=32 (Broken pipe))
+17:16:44.747 [[32mINF[0m] [[34mapp[0m] shutdown
+17:16:44.814 [[32mINF[0m] [[34mtexcache[0m] evicted /home/watrib/Pictures/1004017-colorized.png
+17:16:44.992 [[32mINF[0m] [[34mlogind[0m] logind sleep delay inhibit released

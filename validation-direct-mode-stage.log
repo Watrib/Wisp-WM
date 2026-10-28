@@ -1,0 +1,13 @@
+Single-connector direct output mode selection stage
+
+cargo fmt --all: PASS
+cargo clippy --all-targets --jobs 1 -- -D warnings: PASS
+cargo test --all-targets --jobs 1: PASS, 92 library tests; two binaries with 0 tests
+Release build (cargo build --release --jobs 1): PASS
+Nested smoke (python3 scripts/smoke.py --release): PASS
+Direct hardware selection: not run for this stage.
+No VT switch performed.
+
+Session locking deliberately not advertised: Smithay 0.7 dispatches unlock()
+after reporting invalid_unlock on a lock object that was never confirmed.
+No security boundary may rely on this callback without checking the owner.

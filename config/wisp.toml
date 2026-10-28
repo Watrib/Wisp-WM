@@ -1,0 +1,113 @@
+# Wisp: nested-first defaults. Alt avoids most host desktop Super shortcuts.
+[general]
+modifier = "alt" # "alt", "super", or "ctrl"
+terminal = ["foot"] # argv, not a shell command
+autostart = [] # argv lists, once per startup; never repeated by reload
+# Example: autostart = [["foot", "--title", "Wisp startup"]]
+# Maximum workspace index (not a preallocated workspace count). The bar grows
+# on use and keeps one spare empty workspace; 255 is the protocol/index limit.
+workspaces = 255
+session_lock_protocol = false # experimental: needs a locker and direct-VT security testing
+xwayland = false # experimental X11 window management; restart required
+
+[input]
+focus_follows_mouse = false
+repeat_delay = 250
+repeat_rate = 35
+xkb_layout = "us"
+# xkb_options = "caps:escape"
+
+[layout]
+default = "dwindle" # "dwindle", "master", or "floating"
+inner_gap = 8
+smart_gaps = false # omit outer gaps for exactly one tiled window (opt-in)
+spring_resize = false # opt-in Phase 4 visual resize interpolation
+overview_animation = true # Exposé zoom; false switches instantly
+workspace_slide = false # optional horizontal workspace transition; off by default
+workspace_slide_ms = 240 # transition duration in milliseconds; 80..500
+window_open_fade = false # fade in newly mapped windows; off by default
+window_open_fade_ms = 160 # 60..400 milliseconds
+spring_frequency_hz = 4.0 # critically damped spring, 1..12 Hz
+outer_gap = 12
+master_ratio = 0.5
+
+[decoration]
+border_width = 2
+# Corner radius in logical pixels; 0 disables rounded corners (windows only).
+corner_radius = 8
+dim_strength = 0.3 # translucent black overlay on inactive windows; 0 disables
+active_border = "#89b4fa"
+inactive_border = "#313244"
+background = "#11111b"
+
+# Dual-color gradient border (uses the rounded geometry when enabled).
+[decoration.gradient]
+enabled = false
+from = "#89b4fa" # at the angle start
+to = "#f5c2e7"   # at the angle end
+angle = 0 # degrees; 0 = top to bottom, 90 = left to right
+
+[decoration.shadow]
+enabled = true
+sigma = 8 # gaussian blur width in logical pixels
+strength_active = 0.55 # 0..1; darkens the focused window's shadow
+strength_inactive = 0.3
+color = "#000000"
+
+[decoration.blur]
+enabled = false # GPU backdrop blur for normal windows; not layer-shell panels
+passes = 2 # 1..4 downsample/upsample passes
+offset = 2.0 # 0..8 sample radius
+
+[render]
+max_fps = 60 # match a 60 Hz host; 144 caused nested present stalls in launcher tests
+# Initial nested size only; direct mode uses the connector's preferred DRM mode.
+width = 1280
+height = 800
+# Optional direct-mode connector mode. Omit for the driver's preferred mode.
+# direct_mode = "1366x768@60" # WIDTHxHEIGHT or WIDTHxHEIGHT@HZ; restart Wisp to apply
+
+# Add or override shortcuts while keeping the built-in bindings:
+# [extra_bindings]
+# "Mod+p" = { name = "spawn", argv = ["foot"] }
+# "Mod+e" = { name = "toggle-overview" }
+# "Mod+Shift+r" = { name = "reload" }
+# "Mod+b" = { name = "toggle-blur" }
+# "Mod+Shift+s" = { name = "toggle-shadows" }
+# "Mod+Right" = { name = "workspace-next" }
+# "Mod+Left" = { name = "workspace-prev" }
+# "Mod+grave" = { name = "workspace-back-and-forth" }
+# "Mod+Shift+grave" = { name = "send-to-scratchpad" }
+# "Mod+grave" = { name = "toggle-scratchpad" } # replaces back-and-forth
+# "Mod+Ctrl+Left" = { name = "focus-direction", direction = "left" }
+# "Mod+Ctrl+Right" = { name = "focus-direction", direction = "right" }
+# "Mod+Ctrl+Up" = { name = "focus-direction", direction = "up" }
+# "Mod+Ctrl+Down" = { name = "focus-direction", direction = "down" }
+# "Mod+Ctrl+Shift+Left" = { name = "swap-direction", direction = "left" }
+# "Mod+Ctrl+Shift+Right" = { name = "swap-direction", direction = "right" }
+# "Mod+Ctrl+Shift+Up" = { name = "swap-direction", direction = "up" }
+# "Mod+Ctrl+Shift+Down" = { name = "swap-direction", direction = "down" }
+#
+# For a fully custom base map, [bindings] replaces the built-in shortcuts.
+# [extra_bindings], if present, is applied over that custom map instead.
+# Example replacement map:
+# [bindings]
+# "Mod+Return" = { name = "terminal" }
+# "Mod+q" = { name = "close" }
+# "Mod+1" = { name = "workspace", index = 1 }
+# "Mod+Shift+1" = { name = "move-to-workspace", index = 1 }
+# "Mod+p" = { name = "spawn", argv = ["foot", "--app-id", "scratchpad"] }
+# "Mod+m" = { name = "layout", kind = "master" }
+# "Mod+e" = { name = "toggle-overview" }
+# "Mod+r" = { name = "reload" }
+# "Mod+Shift+Escape" = { name = "quit" }
+
+# Rules run in order on a window's first buffer commit; last matching value wins.
+# app_id matches exactly; title is a case-sensitive substring. All specified
+# conditions must match. Size applies to the saved floating geometry.
+# [[rules]]
+# app_id = "org.example.app"
+# title = "Settings"
+# floating = true
+# size = [800, 600]
+# workspace = 2

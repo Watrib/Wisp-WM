@@ -1,0 +1,51 @@
+{
+  "normal": {
+    "seconds": 12,
+    "cpu_seconds": 1.79,
+    "rss_kib": 164560,
+    "frames": {
+      "bind_wall_us": 22110,
+      "client_commits": 1291,
+      "compose_wall_us": 444819,
+      "cpu_over_16ms": 0,
+      "cpu_over_8ms": 0,
+      "flip_over_25ms": 0,
+      "flip_over_40ms": 0,
+      "flip_wait_us": 0,
+      "host_redraws": 0,
+      "no_damage": 0,
+      "present_wall_us": 322792,
+      "render_cpu_us": 848023,
+      "render_over_16ms": 0,
+      "render_over_8ms": 1,
+      "rendered": 539,
+      "scene_wall_us": 379838,
+      "skipped_invisible_commits": 638
+    }
+  },
+  "overview": {
+    "seconds": 12,
+    "cpu_seconds": 1.59,
+    "rss_kib": 165148,
+    "frames": {
+      "bind_wall_us": 16321,
+      "client_commits": 1200,
+      "compose_wall_us": 443217,
+      "cpu_over_16ms": 0,
+      "cpu_over_8ms": 0,
+      "flip_over_25ms": 0,
+      "flip_over_40ms": 0,
+      "flip_wait_us": 0,
+      "host_redraws": 0,
+      "no_damage": 0,
+      "present_wall_us": 287951,
+      "render_cpu_us": 840897,
+      "render_over_16ms": 0,
+      "render_over_8ms": 6,
+      "rendered": 485,
+      "scene_wall_us": 380253,
+      "skipped_invisible_commits": 597
+    }
+  }
+}
+overview-bench exit=0

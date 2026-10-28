@@ -1,0 +1,32 @@
+{
+  "mapped_windows": 2,
+  "overview_open": true,
+  "idle_extra_frames": 36,
+  "idle_cpu_render_us": 34744,
+  "idle_present_us": 150841,
+  "frame_deltas": {
+    "bind_wall_us": 1656,
+    "client_commits": 72,
+    "compose_wall_us": 30055,
+    "cpu_over_16ms": 0,
+    "cpu_over_8ms": 0,
+    "flip_over_25ms": 0,
+    "flip_over_40ms": 0,
+    "flip_wait_us": 0,
+    "host_redraws": 0,
+    "no_damage": 0,
+    "present_wall_us": 150841,
+    "render_cpu_us": 34744,
+    "render_over_16ms": 1,
+    "render_over_8ms": 12,
+    "rendered": 36,
+    "scene_wall_us": 2960,
+    "skipped_invisible_commits": 36
+  }
+}
+Traceback (most recent call last):
+  File "/tmp/opencode/check-overview-idle.py", line 65, in <module>
+    assert result['idle_extra_frames'] == 0, 'overview caused idle redraws'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: overview caused idle redraws
+overview-cache-idle-diagnostic exit=1

@@ -1,0 +1,18 @@
+Held-Alt slide fix validation (nested; no VT switched)
+
+cargo fmt --all: PASS
+cargo clippy --all-targets --jobs 1 -- -D warnings: PASS
+cargo test --lib alt_stays_held_across_slide_shortcuts_and_releases_cleanly --jobs 1: PASS
+cargo test --all-targets --jobs 1: PASS, 90 library tests, 0 failures; binaries have 0 tests
+cargo build --release --jobs 1: PASS
+python3 scripts/smoke.py --release: PASS (nested client and shutdown scenarios)
+
+The test binds Alt+Return to a harmless workspace change instead of spawning
+foot, then exercises Alt+2, Alt+Return with Alt continuously held; it also
+releases Alt during a slide and verifies the modifier and shortcut bookkeeping.
+Direct hardware behavior needs the user to retest on a free VT.
+
+User glmark2 --validate log: /home/watrib/log.txt, Mesa Intel HD Graphics 3000.
+Matches the user's niri validation output; neither log has protocol tracing
+to show whether dmabuf buffers were created/imported. No throughput or GPU
+timing comparison has been made.

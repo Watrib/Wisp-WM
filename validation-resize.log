@@ -1,0 +1,92 @@
+fmt-format exit=0
+fmt-check exit=0
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 8.22s
+clippy exit=0
+    Finished `test` profile [unoptimized] target(s) in 1.74s
+     Running unittests src/lib.rs (target/debug/deps/wisp-a0da95ea8a03b8dd)
+
+running 59 tests
+test compositor::direct::cursor::tests::fallback_cursor_has_visible_pixels_and_a_tip_hotspot ... ok
+test compositor::direct::cursor::tests::picks_the_first_frame_of_the_nearest_size ... ok
+test compositor::direct::cursor::tests::picks_the_image_closest_to_the_requested_size ... ok
+test compositor::blur::tests::blur_shaders_use_es_precision_and_kawase_samples ... ok
+test compositor::direct::output::tests::automatic_selection_skips_disconnected_and_modeless_connectors ... ok
+test compositor::direct::output::tests::disconnected_or_unknown_explicit_connector_is_rejected ... ok
+test compositor::direct::output::tests::explicit_connector_selection_is_case_insensitive ... ok
+test compositor::direct::output::tests::preferred_mode_wins_otherwise_first ... ok
+test compositor::effects::tests::pixel_shaders_have_no_version_line ... ok
+test compositor::effects::tests::every_compiled_uniform_is_declared_in_its_program ... ok
+test compositor::effects::tests::clip_fragment_matches_texture_program_contract ... ok
+test compositor::input::tests::degenerate_output_still_clamps_to_its_origin ... ok
+test compositor::input::tests::pointer_is_clamped_to_the_output ... ok
+test compositor::input::tests::vt_shortcut_is_direct_only_and_releases_cleanly ... ok
+test compositor::protocols::tests::cursor_shapes_require_pointer_focus_and_an_enter_serial ... ok
+test compositor::protocols::tests::ext_workspace_binding_announces_group_output_and_active_workspace ... ok
+test compositor::protocols::tests::activation_is_one_shot_and_untrusted_requests_only_mark_attention ... ok
+test compositor::protocols::tests::ext_workspace_client_created_workspace_activation_switches ... ok
+test compositor::protocols::tests::ext_workspace_keeps_one_spare_and_removes_unused_trailing_workspaces ... ok
+test compositor::protocols::tests::ext_workspace_late_output_bind_announces_to_existing_group ... ok
+test compositor::protocols::tests::fractional_scale_and_viewport_are_committed_and_reported ... ok
+test compositor::protocols::tests::ext_workspace_retains_occupied_workspaces_until_the_window_closes ... ok
+test compositor::protocols::tests::icon_buffer_replacement_releases_only_the_replaced_buffer ... ok
+test compositor::protocols::tests::hidden_and_unmapped_toplevel_commits_do_not_schedule_frames ... ok
+test compositor::protocols::tests::icons_can_be_destroyed_before_the_first_surface_commit ... ok
+xdg_toplevel_icon_v1#9: error 2: Icon has already been assigned to a toplevel
+xdg_toplevel_icon_v1#4: error 1: Icon buffer must be square with positive scale
+[destroyed object]: error 3: The provided buffer has been destroyed before the toplevel icon
+xdg_toplevel_icon_v1#4: error 1: Icon buffer must be square with positive scale
+[destroyed object]: error 3: The provided buffer has been destroyed before the toplevel icon
+test compositor::protocols::tests::icons_reject_premature_buffer_destruction_even_when_shared ... ok
+xdg_toplevel_icon_v1#9: error 2: Icon has already been assigned to a toplevel
+test compositor::protocols::tests::icons_reject_mutation_after_assignment_without_panicking ... ok
+xdg_toplevel_icon_v1#4: error 1: Icon buffer must be square with positive scale
+test compositor::protocols::tests::icons_reject_non_square_buffers_and_invalid_scale ... ok
+test compositor::protocols::tests::initial_bufferless_toplevel_commit_only_sends_configure ... ok
+test compositor::protocols::tests::layer_surface_bar_gets_initial_configure_and_anchored_geometry ... ok
+test compositor::protocols::tests::layer_surface_wallpaper_spans_the_output ... ok
+test compositor::protocols::tests::layer_surface_unmaps_and_remaps_with_buffer_presence ... ok
+test compositor::protocols::tests::rules_moving_first_buffer_to_hidden_workspace_unmap_the_window ... ok
+test compositor::protocols::tests::synchronized_subsurface_waits_for_parent_commit_before_redraw ... ok
+test compositor::tests::ipc_workspaces_follow_dynamic_frontier_without_a_bar_client ... ok
+test compositor::protocols::tests::toplevel_icons_are_double_buffered_and_can_be_unset ... ok
+test compositor::protocols::tests::activation_tokens_expire_and_storage_is_bounded ... ok
+test compositor::protocols::tests::text_input_and_separate_ime_exchange_text_grabs_and_popup_lifecycle ... ok
+test compositor::tests::repeated_quit_preserves_deadline_and_rejects_other_actions ... ok
+test compositor::tests::runtime_failure_preserves_first_error_even_during_clean_quit ... ok
+test config::tests::bindings_ignore_lock_modifiers_but_not_extra_modifiers ... ok
+test config::tests::colors_are_premultiplied ... ok
+test compositor::tests::shutdown_deadline_bounds_unresponsive_clients ... ok
+test config::tests::duplicate_normalized_bindings_are_rejected ... ok
+test config::tests::decoration_effects_validate_ranges_and_structure ... ok
+test compositor::tests::shutdown_waits_for_clients_even_without_windows ... ok
+test config::tests::explicit_bindings_replace_defaults ... ok
+test compositor::tests::status_exposes_cumulative_render_phase_timings ... ok
+test ipc::tests::accepts_only_complete_bounded_messages ... ok
+test layout::tests::dwindle_splits_the_remaining_tile ... ok
+test layout::tests::empty_and_floating_layouts_have_no_tiles ... ok
+test layout::tests::master_accounts_for_gaps_and_rounding ... ok
+test layout::tests::normal_tiles_are_bounded_and_do_not_overlap ... ok
+test layout::tests::smart_gaps_only_remove_outer_gap_for_one_tiled_window ... ok
+test config::tests::rejects_typos_and_invalid_values ... ok
+test protocol::tests::ipc_roundtrips ... ok
+test protocol::tests::rejects_unknown_fields_and_invalid_actions ... ok
+test config::tests::example_and_empty_config_are_valid ... ok
+test layout::tests::tiny_outputs_and_extreme_gaps_never_produce_invalid_sizes ... ok
+
+test result: ok. 59 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running unittests src/main.rs (target/debug/deps/wisp-babf5ac5f926db45)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/wispctl.rs (target/debug/deps/wispctl-1c4001e0a8f465e0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+test exit=0
+    Finished `release` profile [optimized] target(s) in 0.26s
+release exit=0

@@ -1,0 +1,36 @@
+{
+  "fps": 60,
+  "seconds": 7.221,
+  "display": "wayland-2",
+  "cpu_seconds": 0.23,
+  "rss_kib": 157108,
+  "toggle_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "frames": {
+    "bind_wall_us": 2996,
+    "client_commits": 155,
+    "compose_wall_us": 48352,
+    "cpu_over_16ms": 0,
+    "cpu_over_8ms": 1,
+    "flip_over_25ms": 0,
+    "flip_over_40ms": 0,
+    "flip_wait_us": 0,
+    "host_redraws": 0,
+    "no_damage": 0,
+    "present_wall_us": 96966,
+    "render_cpu_us": 158318,
+    "render_over_16ms": 0,
+    "render_over_8ms": 3,
+    "rendered": 113,
+    "scene_wall_us": 106746,
+    "skipped_invisible_commits": 0
+  }
+}

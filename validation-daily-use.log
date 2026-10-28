@@ -1,0 +1,29 @@
+Daily-use batch validation (nested only)
+
+cargo fmt --all: PASS
+cargo fmt --all --check: PASS
+cargo clippy --all-targets --jobs 1 -- -D warnings: PASS
+cargo test --all-targets --jobs 1: PASS, 89 library tests, 0 failures; both binaries 0 tests
+cargo build --release --jobs 1: PASS
+python3 scripts/smoke.py --release: PASS (nested client and shutdown scenarios)
+
+The first full test run failed in the new scratchpad protocol test because its
+test client destroyed an xdg_toplevel before draining outstanding configure
+acknowledgements. The test was corrected; the focused rerun and full suite
+then passed. No direct backend, VT switch, real GPU dmabuf rendering or visual
+animation assessment was performed.
+
+Nested opt-in runtime check (spring_resize, workspace_slide and
+window_open_fade enabled): 17 rendered frames during one workspace slide;
+0 additional frames during the following 0.65 s idle interval. Scratchpad
+hide/show, JSON-lines stdout updates and clean shutdown passed in that run.
+The check does not measure animation smoothness or frame latency.
+
+Single-run 5 s nested samples (raw results: validation-daily-use-nested.json):
+defaults idle: 0 rendered, 0.00 CPU s
+animations-enabled idle: 0 rendered, 0.00 CPU s
+defaults 30-fps animated foot steady state: 150 rendered, 0.44 CPU s
+animations-enabled 30-fps animated foot steady state: 150 rendered, 0.43 CPU s
+The steady-state sample starts after window-opening animation ends and does
+not include a workspace slide. Host/driver variation and single-run noise
+prevent a performance comparison; there are no GPU timings.

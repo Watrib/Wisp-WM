@@ -1,0 +1,55 @@
+{
+  "enabled": false,
+  "start_frames": 5,
+  "during": 8,
+  "after": 8,
+  "idle": 8,
+  "animation_frames": 0,
+  "idle_extra_frames": 0,
+  "cpu_over_16ms_during": 0,
+  "render_cpu_us_during": 0,
+  "scene_wall_us_during": 0,
+  "compose_wall_us_during": 0,
+  "present_wall_us_during": 0,
+  "windows": [
+    {
+      "app_id": "wisp-spring",
+      "floating": false,
+      "focused": false,
+      "fullscreen": false,
+      "geometry": {
+        "height": 740,
+        "width": 620,
+        "x": 14,
+        "y": 14
+      },
+      "icon_buffers": 0,
+      "icon_name": "wisp-spring",
+      "id": 1,
+      "mapped": true,
+      "title": "foot",
+      "urgent": false,
+      "workspace": 1
+    },
+    {
+      "app_id": "wisp-spring",
+      "floating": false,
+      "focused": true,
+      "fullscreen": false,
+      "geometry": {
+        "height": 740,
+        "width": 620,
+        "x": 646,
+        "y": 14
+      },
+      "icon_buffers": 0,
+      "icon_name": "wisp-spring",
+      "id": 2,
+      "mapped": true,
+      "title": "foot",
+      "urgent": false,
+      "workspace": 1
+    }
+  ]
+}
+spring-off exit=0
